@@ -11,6 +11,7 @@ import type { Route } from "./+types/root";
 import "./app.css";
 import gsap from "gsap";
 import { ScrollTrigger, SplitText } from "gsap/all";
+import Navbar from "../components/Common/Navbar";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -37,7 +38,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {children}
+        <main>
+          <Navbar />
+          {children}
+        </main>
         <ScrollRestoration />
         <Scripts />
       </body>
