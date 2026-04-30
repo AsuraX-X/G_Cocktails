@@ -43,7 +43,7 @@ const Hero = () => {
       },
     });
     gsap.to(".right-leaf", {
-      yPercent: 180,
+      yPercent: 150,
       scrollTrigger: {
         trigger: "right-leaf",
         start: "top top",
@@ -76,7 +76,7 @@ const Hero = () => {
     <>
       <section id="hero" className="noisy">
         <h1 className="title uppercase overflow-hidden text-gradient opacity-0">
-          Crimson
+          Jadeite
         </h1>
         <img
           src="/images/hero-left-leaf.png"

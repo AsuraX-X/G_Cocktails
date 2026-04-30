@@ -20,9 +20,11 @@ const Navbar = () => {
     <nav>
       <div>
         <a href="#">
-          <div className="flex-center  gap-2">
-            <img src="/images/logo.svg" alt="logo" />
-            <p>Golden Sip</p>
+          <div className="flex flex-row items-center m-0 p-0">
+            <div className="p-0 m-0 w-fit">
+              <img src="/images/logo.svg" alt="logo" />
+            </div>
+            <p className="p-0<<<">Golden Sip</p>
           </div>
         </a>
 
