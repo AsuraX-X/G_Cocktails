@@ -34,7 +34,7 @@ const Hero = () => {
     });
 
     gsap.to(".left-leaf", {
-      yPercent: 80,
+      yPercent: -60,
       scrollTrigger: {
         trigger: "left-leaf",
         start: "top top",

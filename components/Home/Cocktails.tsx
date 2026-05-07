@@ -19,8 +19,8 @@ const Cocktails = () => {
       y: 100,
     }).from("#c-right-leaf", {
       rotateZ: -30,
-      yPercent: 30,
-      xPercent:20
+      y: 100,
+      x:100
     });
   });
 
