@@ -20,7 +20,7 @@ const Cocktails = () => {
     }).from("#c-right-leaf", {
       rotateZ: -30,
       y: 100,
-      x:100
+      x: 100,
     });
   });
 
@@ -30,11 +30,13 @@ const Cocktails = () => {
         src="/images/cocktail-left-leaf.png"
         alt="left leaf"
         id="c-left-leaf"
+        className="sm:block hidden"
       />
       <img
         src="/images/cocktail-right-leaf.png"
         alt="right leaf"
         id="c-right-leaf"
+        className="sm:block hidden"
       />
       <div className="list">
         <div className="popular">

@@ -3,6 +3,8 @@ import Hero from "../../components/Home/Hero";
 import Cocktails from "../../components/Home/Cocktails";
 import About from "../../components/Home/About";
 import Art from "../../components/Home/Art";
+import Menu from "../../components/Home/Menu";
+import Footer from "../../components/Common/Footer";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -18,6 +20,8 @@ export default function Home() {
       <Cocktails />
       <About />
       <Art />
+      <Menu />
+      <Footer />
     </div>
   );
 }
