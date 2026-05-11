@@ -1,6 +1,8 @@
+"use client";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
+import Image from "next/image";
 import { useRef } from "react";
 import { useMediaQuery } from "react-responsive";
 
@@ -36,7 +38,7 @@ const Hero = () => {
     gsap.to(".left-leaf", {
       yPercent: -60,
       scrollTrigger: {
-        trigger: "left-leaf",
+        trigger: ".left-leaf",
         start: "top top",
         end: "bottom top",
         scrub: true,
@@ -45,7 +47,7 @@ const Hero = () => {
     gsap.to(".right-leaf", {
       yPercent: 150,
       scrollTrigger: {
-        trigger: "right-leaf",
+        trigger: ".right-leaf",
         start: "top top",
         end: "bottom top",
         scrub: true,
@@ -55,20 +57,31 @@ const Hero = () => {
     const startValue = isMobile ? "top 50%" : "center 60%";
     const endValue = isMobile ? "120% top" : "bottom top";
 
-    const videoTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: "video",
-        start: startValue,
-        end: endValue,
-        scrub: true,
-        pin: true,
-      },
-    });
+    const video = videoRef.current;
+    if (!video) return;
 
-    if (videoRef.current) {
-      videoTl.to(videoRef.current, {
-        currentTime: videoRef.current?.duration,
-      });
+    const init = () => {
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: video,
+            start: startValue,
+            end: endValue,
+            scrub: true,
+            pin: true,
+          },
+        })
+        .to(video, {
+          currentTime: video.duration,
+          ease: "none",
+        });
+    };
+
+    // Guard against duration being 0/NaN before metadata loads
+    if (video.readyState >= 1) {
+      init();
+    } else {
+      video.addEventListener("loadedmetadata", init, { once: true });
     }
   });
 
@@ -78,12 +91,16 @@ const Hero = () => {
         <h1 className="title uppercase overflow-hidden text-gradient opacity-0">
           Jadeite
         </h1>
-        <img
+        <Image
+          width={266}
+          height={461}
           src="/images/hero-left-leaf.png"
           alt="left leaf"
           className="left-leaf"
         />
-        <img
+        <Image
+          width={228}
+          height={478}
           src="/images/hero-right-leaf.png"
           alt="right leaf"
           className="right-leaf"

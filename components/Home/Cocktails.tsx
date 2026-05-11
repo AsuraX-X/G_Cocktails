@@ -1,7 +1,9 @@
-import React from "react";
+"use client";
 import { cocktailLists, mockTailLists } from "../../constants";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import Image from "next/image";
+
 
 const Cocktails = () => {
   useGSAP(() => {
@@ -26,13 +28,17 @@ const Cocktails = () => {
 
   return (
     <section id="cocktails" className="noisy">
-      <img
+      <Image
+      width={294}
+      height={322}
         src="/images/cocktail-left-leaf.png"
         alt="left leaf"
         id="c-left-leaf"
         className="sm:block hidden"
       />
-      <img
+      <Image
+      width={315}
+      height={322}
         src="/images/cocktail-right-leaf.png"
         alt="right leaf"
         id="c-right-leaf"

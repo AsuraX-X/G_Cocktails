@@ -1,7 +1,8 @@
-import React from "react";
+"use client";
 import { featureLists, goodLists } from "../../constants";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import Image from "next/image";
 import { useMediaQuery } from "react-responsive";
 
 const Art = () => {
@@ -43,13 +44,15 @@ const Art = () => {
           <ul className="space-y-4 will-fade">
             {goodLists.map((feature, i) => (
               <li key={i} className="flex items-center gap-2">
-                <img src="/images/check.png" alt="check" />
+                <Image width={16} height={16} src="/images/check.png" alt="check" />
                 <p>{feature}</p>
               </li>
             ))}
           </ul>
           <div className="cocktail-img">
-            <img
+            <Image
+            width={1500}
+            height={1000}
               src="/images/under-img.jpg"
               alt="cocktail"
               className="abs-center masked-img"
@@ -60,7 +63,7 @@ const Art = () => {
             <ul className="space-y-4 will-fade">
               {featureLists.map((feature, i) => (
                 <li key={i} className="flex items-center  justify-start gap-2">
-                  <img src="/images/check.png" alt="check" />
+                  <Image width={16} height={16} src="/images/check.png" alt="check" />
                   <p className="md:w-fit w-60">{feature}</p>
                 </li>
               ))}
@@ -68,7 +71,7 @@ const Art = () => {
           </div>
         </div>
         <div className="masked-container">
-          <h2 className="will-fade">Sip-Worthey Perfection</h2>
+          <h2 className="will-fade">Sip-Worthy Perfection</h2>
           <div id="masked-content">
             <h3>Made with Craft, Poured with Passion</h3>
             <p>

@@ -1,16 +1,15 @@
-import React, { useEffect, useRef, useState } from "react";
+"use client";
+import { useRef, useState } from "react";
 import { sliderLists } from "../../constants";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { useMediaQuery } from "react-responsive";
+import Image from "next/image";
 
 const Menu = () => {
   const contentRef = useRef<HTMLDivElement | null>(null);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState("l");
-
-  const isMobile = useMediaQuery({ maxWidth: 727 });
 
   const goToSlide = (i: number) => {
     const newI = (i + sliderLists.length) % sliderLists.length;
@@ -69,7 +68,7 @@ const Menu = () => {
     });
 
     gsap.from(".details h2", { opacity: 0, yPercent: 100 });
-    gsap.from(".details p", { opacity: 0, yPercent: 100, delay:0.05 });
+    gsap.from(".details p", { opacity: 0, yPercent: 100, delay: 0.05 });
   }, [currentIndex]);
 
   return (
@@ -79,20 +78,30 @@ const Menu = () => {
       aria-labelledby="menu-heading"
     >
       <div id="m-right-leaf" className="absolute sm:block hidden top-0 right-0">
-        <img src="/images/slider-right-leaf.png" alt="right-leaf" />
+        <Image
+          width={241}
+          height={355}
+          src="/images/slider-right-leaf.png"
+          alt="right-leaf"
+        />
       </div>
       <div
         id="m-left-leaf"
         className="absolute sm:block hidden bottom-0 left-0"
       >
-        <img src="/images/slider-left-leaf.png" alt="left-leaf" />
+        <Image
+          width={275}
+          height={304}
+          src="/images/slider-left-leaf.png"
+          alt="left-leaf"
+        />
       </div>
 
       <h2 id="menu-heading" className="sr-only">
         Cocktail Menu
       </h2>
       <nav className="cocktail-tabs" aria-label="cocktail-navigation">
-        {sliderLists.map(({ description, id, image, name, title }, i) => {
+        {sliderLists.map(({ id, name }, i) => {
           const isActive = i === currentIndex;
 
           return (
@@ -121,10 +130,11 @@ const Menu = () => {
               <path d="M10.8284 12.0007L15.7782 16.9504L14.364 18.3646L8 12.0007L14.364 5.63672L15.7782 7.05093L10.8284 12.0007Z"></path>
             </svg>
           </button>
-          <img
+          <Image
             id="cocktail-img"
+            fill
             src={currentCocktail.image}
-            className="object-contain"
+            className="object-contain mx-auto max-w-150 "
             alt={currentCocktail.name}
           />
           <button

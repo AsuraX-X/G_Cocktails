@@ -1,8 +1,9 @@
-import React from "react";
+"use client";
 import { openingHours, socials } from "../../constants";
 import { useGSAP } from "@gsap/react";
-import { SplitText } from "gsap/all";
 import gsap from "gsap";
+import { SplitText } from "gsap/SplitText";
+import Image from "next/image";
 
 const Footer = () => {
   useGSAP(() => {
@@ -24,12 +25,16 @@ const Footer = () => {
 
   return (
     <footer id="contact">
-      <img
+      <Image
+        width={308}
+        height={319}
         src="/images/footer-right-leaf.png"
         alt="leaf-right"
         id="f-right-leaf"
       />
-      <img
+      <Image
+        width={356}
+        height={393}
         src="/images/footer-left-leaf.png"
         alt="leaf-left"
         id="f-left-leaf"
@@ -65,7 +70,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 aria-label={name}
               >
-                <img src={icon} alt={name} />
+                <Image width={40} height={40} src={icon} alt={name} />
               </a>
             ))}
           </div>

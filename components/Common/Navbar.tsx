@@ -1,6 +1,8 @@
+"use client";
 import { useGSAP } from "@gsap/react";
 import { navLinks } from "../../constants";
 import gsap from "gsap";
+import Image from "next/image";
 
 const Navbar = () => {
   useGSAP(() => {
@@ -22,7 +24,7 @@ const Navbar = () => {
         <a href="#">
           <div className="flex flex-row items-center m-0 p-0">
             <div className="p-0 m-0 w-fit">
-              <img src="/images/logo.svg" alt="logo" />
+              <Image width={40} height={40} src="/images/logo.svg" alt="logo" />
             </div>
             <p className="p-0<<<">Golden Sip</p>
           </div>
